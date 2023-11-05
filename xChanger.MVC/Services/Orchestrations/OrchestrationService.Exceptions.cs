@@ -5,13 +5,13 @@
 
 using System;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Models.Orchestrations.ExternalApplicants.Exceptions;
-using Tarteeb.XChanger.Models.Orchestrations.Groups;
-using Tarteeb.XChanger.Models.Proccesings.Group;
-using Tarteeb.XChanger.Models.Proccesings.SpreadSheet.Exceptions;
+using xChanger.MVC.Models.Orchestrations.ExternalApplicants.Exceptions;
+using xChanger.MVC.Models.Orchestrations.Groups;
+using xChanger.MVC.Models.Proccesings.Group;
+using xChanger.MVC.Models.Proccesings.SpreadSheet.Exceptions;
 using Xeptions;
 
-namespace Tarteeb.XChanger.Services.Orchestrations
+namespace xChanger.MVC.Services.Orchestrations
 {
     public partial class OrchestrationService
     {

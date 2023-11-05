@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Orchestrations.ExternalApplicants.Exceptions
+namespace xChanger.MVC.Models.Orchestrations.ExternalApplicants.Exceptions
 {
     public class ExternalApplicantOrchestrationValidationException : Xeption
     {

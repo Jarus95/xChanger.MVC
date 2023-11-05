@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Tarteeb.XChanger.Brokers.Loggings
+namespace xChanger.MVC.Brokers.Loggings
 {
     public interface ILoggingBroker
     {

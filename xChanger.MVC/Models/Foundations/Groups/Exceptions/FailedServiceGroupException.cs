@@ -6,7 +6,7 @@
 using System;
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Foundations.Groups.Exceptions
+namespace xChanger.MVC.Models.Foundations.Groups.Exceptions
 {
     public class FailedServiceGroupException : Xeption
     {

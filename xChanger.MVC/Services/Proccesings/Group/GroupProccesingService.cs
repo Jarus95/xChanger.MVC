@@ -6,11 +6,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Brokers.Loggings;
-using Tarteeb.XChanger.Services.Foundations.Group;
-using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
+using xChanger.MVC.Brokers.Loggings;
+using xChanger.MVC.Services.Foundations.Group;
+using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
 
-namespace Tarteeb.XChanger.Services.Proccesings.Group
+namespace xChanger.MVC.Services.Proccesings.Group
 {
     public partial class GroupProccesingService : IGroupProccesingService
     {

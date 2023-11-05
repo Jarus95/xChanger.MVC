@@ -4,8 +4,8 @@
 //=================================
 
 using System.Threading.Tasks;
-using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
-namespace Tarteeb.XChanger.Services.Proccesings.Group
+using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
+namespace xChanger.MVC.Services.Proccesings.Group
 {
     public interface IGroupProccesingService
     {

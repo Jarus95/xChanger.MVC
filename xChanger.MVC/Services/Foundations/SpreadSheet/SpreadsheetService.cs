@@ -6,12 +6,12 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Http;
-using Tarteeb.XChanger.Brokers;
-using Tarteeb.XChanger.Brokers.Loggings;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Models.Foundations.SpreadSheets.Exceptions;
+using xChanger.MVC.Brokers;
+using xChanger.MVC.Brokers.Loggings;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.SpreadSheets.Exceptions;
 
-namespace Tarteeb.XChanger.Services.Foundations.SpreadSheet;
+namespace xChanger.MVC.Services.Foundations.SpreadSheet;
 
 public partial class SpreadsheetService : ISpreadsheetService
 {

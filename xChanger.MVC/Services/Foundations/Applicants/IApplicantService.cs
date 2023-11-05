@@ -6,9 +6,9 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Services.Foundations.Applicants
+namespace xChanger.MVC.Services.Foundations.Applicants
 {
     public interface IApplicantService
     {

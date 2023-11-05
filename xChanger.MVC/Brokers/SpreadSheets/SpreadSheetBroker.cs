@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using OfficeOpenXml;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Brokers
+namespace xChanger.MVC.Brokers
 {
     public class SpreadSheetBroker : ISpreadSheetBroker
     {

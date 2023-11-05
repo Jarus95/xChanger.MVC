@@ -6,7 +6,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Tarteeb.XChanger.Services.Orchestrations;
+namespace xChanger.MVC.Services.Orchestrations;
 
 public interface IOrchestrationService
 {

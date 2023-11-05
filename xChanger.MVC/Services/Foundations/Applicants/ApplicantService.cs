@@ -6,12 +6,12 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Brokers.DateTimes;
-using Tarteeb.XChanger.Brokers.Loggings;
-using Tarteeb.XChanger.Brokers.Storages;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
+using xChanger.MVC.Brokers.DateTimes;
+using xChanger.MVC.Brokers.Loggings;
+using xChanger.MVC.Brokers.Storages;
+using xChanger.MVC.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Services.Foundations.Applicants
+namespace xChanger.MVC.Services.Foundations.Applicants
 {
     public partial class ApplicantService : IApplicantService
     {

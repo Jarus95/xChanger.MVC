@@ -8,14 +8,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Tarteeb.XChanger.Brokers.Loggings;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Models.Foundations.Groups;
-using Tarteeb.XChanger.Services.Proccesings.Applicants;
-using Tarteeb.XChanger.Services.Proccesings.Group;
-using Tarteeb.XChanger.Services.Proccesings.SpreadSheet;
+using xChanger.MVC.Brokers.Loggings;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Groups;
+using xChanger.MVC.Services.Proccesings.Applicants;
+using xChanger.MVC.Services.Proccesings.Group;
+using xChanger.MVC.Services.Proccesings.SpreadSheet;
 
-namespace Tarteeb.XChanger.Services.Orchestrations;
+namespace xChanger.MVC.Services.Orchestrations;
 
 public partial class OrchestrationService : IOrchestrationService
 {

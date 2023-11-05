@@ -1,6 +1,6 @@
 ﻿using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Foundations.Applicants.Exceptions
+namespace xChanger.MVC.Models.Foundations.Applicants.Exceptions
 {
     public class NullApplicantException: Xeption
     {

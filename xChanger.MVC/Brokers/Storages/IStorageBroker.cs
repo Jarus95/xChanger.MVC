@@ -3,7 +3,7 @@
 // Powering True Leadership
 //=================================
 
-namespace Tarteeb.XChanger.Brokers.Storages
+namespace xChanger.MVC.Brokers.Storages
 {
     public partial interface IStorageBroker
     {

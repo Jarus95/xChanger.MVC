@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Tarteeb.XChanger.Models;
+using xChanger.MVC.Models;
 
-namespace Tarteeb.XChanger.Brokers.Storages
+namespace xChanger.MVC.Brokers.Storages
 {
     public partial class StorageBroker : EFxceptionsContext, IStorageBroker
     {

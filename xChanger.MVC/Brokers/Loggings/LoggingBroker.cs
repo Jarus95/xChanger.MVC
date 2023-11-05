@@ -6,7 +6,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace Tarteeb.XChanger.Brokers.Loggings
+namespace xChanger.MVC.Brokers.Loggings
 {
     public class LoggingBroker : ILoggingBroker
     {

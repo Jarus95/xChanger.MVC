@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Foundations.Groups.Exceptions.Categories
+namespace xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories
 {
     public class GroupValidationException : Xeption
     {

@@ -4,10 +4,10 @@
 //=================================
 
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Services.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Services.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Services.Proccesings.Applicants
+namespace xChanger.MVC.Services.Proccesings.Applicants
 {
     public class ApplicantProccesingService : IApplicantProccesingService
     {

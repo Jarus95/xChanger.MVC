@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Proccesings.SpreadSheet.Exceptions
+namespace xChanger.MVC.Models.Proccesings.SpreadSheet.Exceptions
 {
     public class SpreadSheetProccesingValidationException : Xeption
     {

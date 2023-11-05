@@ -5,12 +5,12 @@
 
 using System;
 using System.Collections.Generic;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Models.Foundations.SpreadSheets.Exceptions.Categories;
-using Tarteeb.XChanger.Models.Proccesings.SpreadSheet.Exceptions;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.SpreadSheets.Exceptions.Categories;
+using xChanger.MVC.Models.Proccesings.SpreadSheet.Exceptions;
 using Xeptions;
 
-namespace Tarteeb.XChanger.Services.Proccesings.SpreadSheet
+namespace xChanger.MVC.Services.Proccesings.SpreadSheet
 {
     public partial class SpreadsheetProccesingService
     {

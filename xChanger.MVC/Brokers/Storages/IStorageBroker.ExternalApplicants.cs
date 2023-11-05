@@ -6,9 +6,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Brokers.Storages
+namespace xChanger.MVC.Brokers.Storages
 {
     public partial interface IStorageBroker
     {

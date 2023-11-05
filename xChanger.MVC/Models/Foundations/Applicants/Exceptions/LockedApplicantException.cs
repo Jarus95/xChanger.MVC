@@ -6,7 +6,7 @@
 using System;
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Foundations.Applicants.Exceptions
+namespace xChanger.MVC.Models.Foundations.Applicants.Exceptions
 {
     public class LockedApplicantException :Xeption
     {

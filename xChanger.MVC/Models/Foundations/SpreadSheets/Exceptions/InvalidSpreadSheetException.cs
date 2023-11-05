@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Foundations.SpreadSheets.Exceptions;
+namespace xChanger.MVC.Models.Foundations.SpreadSheets.Exceptions;
 
 public class InvalidSpreadSheetException : Xeption
 {

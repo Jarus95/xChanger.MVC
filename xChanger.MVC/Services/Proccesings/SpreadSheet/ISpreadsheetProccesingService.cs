@@ -5,9 +5,9 @@
 
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Services.Proccesings.SpreadSheet;
+namespace xChanger.MVC.Services.Proccesings.SpreadSheet;
 
 public interface ISpreadsheetProccesingService
 {

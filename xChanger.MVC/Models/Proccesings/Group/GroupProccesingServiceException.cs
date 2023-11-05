@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Proccesings.Group
+namespace xChanger.MVC.Models.Proccesings.Group
 {
     public class GroupProccesingServiceException : Xeption
     {

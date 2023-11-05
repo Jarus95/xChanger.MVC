@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace xChanger.Models.Foundations.Groups.Exceptions.Categories
+namespace xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories
 {
     public class GroupDependencyException : Xeption
     {

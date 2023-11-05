@@ -5,7 +5,7 @@
 
 using Xeptions;
 
-namespace Tarteeb.XChanger.Models.Orchestrations.Groups
+namespace xChanger.MVC.Models.Orchestrations.Groups
 {
     public class GroupOrchestartionDependencyValidationException :Xeption
     {

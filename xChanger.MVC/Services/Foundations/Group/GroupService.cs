@@ -7,12 +7,12 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Brokers.DateTimes;
-using Tarteeb.XChanger.Brokers.Loggings;
-using Tarteeb.XChanger.Brokers.Storages;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions;
-using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
-namespace Tarteeb.XChanger.Services.Foundations.Group
+using xChanger.MVC.Brokers.DateTimes;
+using xChanger.MVC.Brokers.Loggings;
+using xChanger.MVC.Brokers.Storages;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions;
+using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
+namespace xChanger.MVC.Services.Foundations.Group
 {
     public partial class GroupService : IGroupService
     {

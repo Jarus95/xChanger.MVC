@@ -2,7 +2,7 @@
 using System.IO;
 using Tarteeb.XChanger.Models.Foundations.Applicants;
 
-namespace Tarteeb.XChanger.Brokers
+namespace xChanger.MVC.Brokers
 {
     public interface ISpreadSheetBroker
     {

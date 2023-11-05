@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Tarteeb.XChanger.Models.Foundations.Groups
+namespace xChanger.MVC.Models.Foundations.Groups
 {
     public class Group
     {
