@@ -4,11 +4,11 @@
 //=================================
 
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions.Categories;
-using Tarteeb.XChanger.Models.Proccesings.Group;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
+using xChanger.MVC.Models.Proccesings.Group;
 using Xeptions;
-using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
-namespace Tarteeb.XChanger.Services.Proccesings.Group
+using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
+namespace xChanger.MVC.Services.Proccesings.Group
 {
     public partial class GroupProccesingService
     {

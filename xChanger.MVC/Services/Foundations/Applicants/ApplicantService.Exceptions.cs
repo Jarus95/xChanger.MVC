@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Models.Foundations.Applicants.Exceptions;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions.Categories;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants.Exceptions;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
 using Xeptions;
 
-namespace Tarteeb.XChanger.Services.Foundations.Applicants
+namespace xChanger.MVC.Services.Foundations.Applicants
 {
     public partial class ApplicantService
     {

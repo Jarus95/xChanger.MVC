@@ -1,8 +1,8 @@
 ﻿using System;
-using Tarteeb.XChanger.Models.Foundations.Applicants;
-using Tarteeb.XChanger.Models.Foundations.Applicants.Exceptions;
+using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Applicants.Exceptions;
 
-namespace Tarteeb.XChanger.Services.Foundations.Applicants
+namespace xChanger.MVC.Services.Foundations.Applicants
 {
     public partial class ApplicantService
     {

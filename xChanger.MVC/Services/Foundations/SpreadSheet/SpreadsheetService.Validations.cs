@@ -3,9 +3,9 @@
 // Powering True Leadership
 //=================================
 
-using Tarteeb.XChanger.Models.Foundations.SpreadSheets.Exceptions;
+using xChanger.MVC.Models.Foundations.SpreadSheets.Exceptions;
 
-namespace Tarteeb.XChanger.Services.Foundations.SpreadSheet;
+namespace xChanger.MVC.Services.Foundations.SpreadSheet;
 
 public partial class SpreadsheetService
 {

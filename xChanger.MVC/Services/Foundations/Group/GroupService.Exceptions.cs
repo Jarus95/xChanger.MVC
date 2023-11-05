@@ -8,12 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions;
-using Tarteeb.XChanger.Models.Foundations.Groups.Exceptions.Categories;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
 using Xeptions;
 using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
 
-namespace Tarteeb.XChanger.Services.Foundations.Group
+namespace xChanger.MVC.Services.Foundations.Group
 {
     public partial class GroupService
     {
