@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using xChanger.MVC.Models.Foundations.Groups.Exceptions;
 using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
 using Xeptions;
-using ApplicantsGroup = Tarteeb.XChanger.Models.Foundations.Groups.Group;
+using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
 
 namespace xChanger.MVC.Services.Foundations.Group
 {
