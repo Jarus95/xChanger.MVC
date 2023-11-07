@@ -2,16 +2,15 @@
 // Copyright (c) Tarteeb LLC.
 // Powering True Leadership
 //=================================
-using EFxceptions.Models.Exceptions;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using EFxceptions.Models.Exceptions;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Models.Foundations.Applicants.Exceptions;
-using xChanger.MVC.Models.Foundations.Groups.Exceptions;
-using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
+using xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories;
 using Xeptions;
 
 namespace xChanger.MVC.Services.Foundations.Applicants

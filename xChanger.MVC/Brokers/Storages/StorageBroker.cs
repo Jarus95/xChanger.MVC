@@ -3,6 +3,7 @@
 // Powering True Leadership
 //=================================
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions;
@@ -66,9 +67,12 @@ namespace xChanger.MVC.Brokers.Storages
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Data Source = xChanger.db";
+            string connectionString =
+               this.configuration.GetConnectionString(name: "DefaultConnection");
+
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            optionsBuilder.UseSqlite(connectionString);
+            var serverVersion = new MySqlServerVersion(new Version(10, 1, 48));
+            optionsBuilder.UseMySql(connectionString, serverVersion );
         }
     }
 }
