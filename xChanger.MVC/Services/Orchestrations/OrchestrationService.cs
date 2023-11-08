@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using xChanger.MVC.Brokers.Loggings;
@@ -65,4 +66,7 @@ public partial class OrchestrationService : IOrchestrationService
             PhoneNumber = externalApplicant.PhoneNumber
         };
     }
+
+    public IQueryable<ExternalApplicantModel> RetrieveAllApplicants() =>
+             this.applicantProccesingService.RetrieveAllApplicants();
 }

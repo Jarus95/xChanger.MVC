@@ -67,12 +67,9 @@ namespace xChanger.MVC.Brokers.Storages
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString =
-               this.configuration.GetConnectionString(name: "DefaultConnection");
-
+            string connectionString = "Data Source = xChanger.db";
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            var serverVersion = new MySqlServerVersion(new Version(10, 1, 48));
-            optionsBuilder.UseMySql(connectionString, serverVersion );
+            optionsBuilder.UseSqlite(connectionString);
         }
     }
 }
