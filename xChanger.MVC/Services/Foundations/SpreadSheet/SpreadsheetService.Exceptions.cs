@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using EFxceptions.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,14 @@ namespace xChanger.MVC.Services.Foundations.SpreadSheet
             catch (InvalidSpreadSheetException invalidSpreadSheetException)
             {
                 throw CreateAndLogValidationException(invalidSpreadSheetException);
+            }
+
+            catch(InvalidDataException invalidDataException)
+            {
+                InvalidFileException invalidFileException =
+                    new InvalidFileException(invalidDataException);
+
+                throw CreateAndLogValidationException(invalidFileException);
             }
             catch (DuplicateKeyException duplicateKeyException)
             {
