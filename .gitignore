@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/xChanger.MVC/xChanger.db-shm
+/xChanger.MVC/xChanger.db-wal
+/xChanger.MVC/xChanger.db
