@@ -5,15 +5,16 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using xChanger.MVC.Brokers.Loggings;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Services.Foundations.Applicants;
 
 namespace xChanger.MVC.Services.Proccesings.Applicants
 {
-    public class ApplicantProccesingService : IApplicantProccesingService
+    public partial class ApplicantProccesingService : IApplicantProccesingService
     {
         private readonly IApplicantService applicantService;
-
+        private readonly ILoggingBroker loggingBroker;
         public ApplicantProccesingService(IApplicantService applicantService)
         {
             this.applicantService = applicantService;

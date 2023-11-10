@@ -10,7 +10,7 @@ namespace xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories
 {
     public class ApplicantDependencyException : Xeption
     {
-        public ApplicantDependencyException(Exception innerException)
+        public ApplicantDependencyException(Xeption innerException)
             : base("Applicant dependency error ocured.Fix the error and try again", innerException)
         { }
     }
