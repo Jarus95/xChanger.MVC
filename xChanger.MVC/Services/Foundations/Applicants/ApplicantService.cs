@@ -34,5 +34,21 @@ namespace xChanger.MVC.Services.Foundations.Applicants
 
         public IQueryable<ExternalApplicantModel> RetrieveAllExternalApplicantModels() =>
               TryCatch(() => storageBroker.RetrieveAllExternalApplicantModels());
+
+        public ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+        TryCatch(async () =>
+        {
+            ValidateApplicantOnAdd(externalApplicantModel);
+            return await storageBroker.UpdateExternalApplicantModelAsync(externalApplicantModel);
+
+        });
+
+        public ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+        TryCatch(async () =>
+        {
+            ValidateApplicantOnAdd(externalApplicantModel);
+            return await storageBroker.DeleteExternalApplicantModelAsync(externalApplicantModel);
+
+        });
     }
 }

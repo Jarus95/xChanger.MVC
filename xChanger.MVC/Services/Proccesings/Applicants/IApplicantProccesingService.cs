@@ -13,5 +13,8 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
     {
         ValueTask<ExternalApplicantModel> InsertApplicantAsync(ExternalApplicantModel externalApplicantModel);
         IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
+        ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+        ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+
     }
 }

@@ -15,9 +15,10 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
     {
         private readonly IApplicantService applicantService;
         private readonly ILoggingBroker loggingBroker;
-        public ApplicantProccesingService(IApplicantService applicantService)
+        public ApplicantProccesingService(IApplicantService applicantService, ILoggingBroker loggingBroker)
         {
             this.applicantService = applicantService;
+            this.loggingBroker = loggingBroker;
         }
 
         public async ValueTask<ExternalApplicantModel> InsertApplicantAsync(ExternalApplicantModel externalApplicantModel) =>
@@ -25,5 +26,11 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
 
         public IQueryable<ExternalApplicantModel> RetrieveAllApplicants() =>
             this.applicantService.RetrieveAllExternalApplicantModels();
+
+        public async ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+            await applicantService.UpdateApplicantModelAsync(externalApplicantModel);
+
+        public async ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+            await applicantService.DeleteApplicantModelAsync(externalApplicantModel);
     }
 }

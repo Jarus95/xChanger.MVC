@@ -14,4 +14,7 @@ public interface IOrchestrationService
 {
     Task ProccesingImportRequest(IFormFile file);
     IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
+    ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+    ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+
 }

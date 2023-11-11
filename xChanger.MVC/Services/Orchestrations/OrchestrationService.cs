@@ -69,4 +69,11 @@ public partial class OrchestrationService : IOrchestrationService
 
     public IQueryable<ExternalApplicantModel> RetrieveAllApplicants() =>
              this.applicantProccesingService.RetrieveAllApplicants();
+
+    public ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel)=>
+    this.applicantProccesingService.UpdateApplicantModelAsync(externalApplicantModel);
+
+    public ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+        this.applicantProccesingService.DeleteApplicantModelAsync(externalApplicantModel);
+   
 }
