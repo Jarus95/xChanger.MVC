@@ -60,42 +60,5 @@ namespace xChanger.MVC.Controllers
                     groupOrchestrationServiceException.InnerException.Message);
             }
         }
-
-        [HttpPost]
-        public async Task<IActionResult> GetFiles(IFormFile formFile)
-        {
-            try
-            {
-                await orchestrationService.ProccesingImportRequest(formFile);
-                return RedirectToAction("ShowGroups", "Group");
-            }
-            catch (GroupOrchestartionValidationException groupOrchestrationValidationException)
-            {
-
-                return BadRequest(groupOrchestrationValidationException.Message + " "
-                    + groupOrchestrationValidationException.InnerException.Message);
-            }
-            catch (ExternalApplicantOrchestrationValidationException externalApplicantOchrestartionValidationException)
-            {
-                return BadRequest(externalApplicantOchrestartionValidationException.Message + " " +
-                    externalApplicantOchrestartionValidationException.InnerException.Message);
-            }
-            catch (GroupOrchestartionDependencyException groupOrchestartionDependencyException)
-            {
-                return BadRequest(groupOrchestartionDependencyException.Message + " " +
-                    groupOrchestartionDependencyException.InnerException.Message);
-            }
-            catch (GroupOrchestartionDependencyValidationException groupOrchestartionDependencyValidationException)
-            {
-                return BadRequest(groupOrchestartionDependencyValidationException.Message + " " +
-                    groupOrchestartionDependencyValidationException.InnerException.Message);
-            }
-            //exceptions
-            catch (GroupOrchestrationServiceException groupOrchestrationServiceException)
-            {
-                return BadRequest(groupOrchestrationServiceException.Message + " " +
-                    groupOrchestrationServiceException.InnerException.Message);
-            }
-        }
     }
 }
