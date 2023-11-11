@@ -28,16 +28,7 @@ namespace xChanger.MVC.Controllers
         {
             IQueryable<Group> groups = orchestrationService.RetrieveAllGroups();
             return View(groups);
-
         }
-
-        public IActionResult ShowApplicantsByGroupName(Guid id)
-        {
- 
-
-            return RedirectToAction("ShowFilterApplicants", "Applicant");
-        }
-
     }
     
 }
