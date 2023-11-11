@@ -55,14 +55,14 @@ namespace xChanger.MVC.Services.Orchestrations
             return groupOrchestartionDependencyValidationException;
         }
 
-        private GroupOchrestartionDependencyException CreateAndLogGroupDependencyException(Xeption xeption)
+        private GroupOrchestartionDependencyException CreateAndLogGroupDependencyException(Xeption xeption)
         {
-            var groupOchrestartionDependencyException = 
-                new GroupOchrestartionDependencyException(xeption);
+            var groupOrchestartionDependencyException = 
+                new GroupOrchestartionDependencyException(xeption);
 
-            this.loggingBroker.LogError(groupOchrestartionDependencyException);
+            this.loggingBroker.LogError(groupOrchestartionDependencyException);
 
-            return groupOchrestartionDependencyException;
+            return groupOrchestartionDependencyException;
         }
 
         private GroupOrchestrationServiceException CreateAndLogGroupServiceException(Xeption xeption)
@@ -85,10 +85,10 @@ namespace xChanger.MVC.Services.Orchestrations
             return externalApplicantOrchestrationValidationException;
         }
 
-        private GroupOchrestartionValidationException CreateAndLogGroupValidationException(Xeption xeption)
+        private GroupOrchestartionValidationException CreateAndLogGroupValidationException(Xeption xeption)
         {
             var groupOchrestartionValidationException =
-                new GroupOchrestartionValidationException(xeption);
+                new GroupOrchestartionValidationException(xeption);
 
             this.loggingBroker.LogError(groupOchrestartionValidationException);
 

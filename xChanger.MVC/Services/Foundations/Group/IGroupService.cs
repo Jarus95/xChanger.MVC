@@ -10,7 +10,7 @@ namespace xChanger.MVC.Services.Foundations.Group
 {
     public interface IGroupService
     {
-        ValueTask<ApplicantsGroup> AddGroupAsyc(ApplicantsGroup group);
+        ValueTask<ApplicantsGroup> AddGroupAsync(ApplicantsGroup group);
         IQueryable<ApplicantsGroup> RetrieveAllGroups();
     }
 }

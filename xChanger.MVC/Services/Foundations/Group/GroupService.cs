@@ -27,7 +27,7 @@ namespace xChanger.MVC.Services.Foundations.Group
             this.loggingBroker = loggingBroker;
         }
 
-        public ValueTask<ApplicantsGroup> AddGroupAsyc(ApplicantsGroup group) =>
+        public ValueTask<ApplicantsGroup> AddGroupAsync(ApplicantsGroup group) =>
         TryCatch(async() =>
         {
             ValidateGroupIsNotNull(group);

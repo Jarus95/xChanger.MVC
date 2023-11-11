@@ -7,9 +7,9 @@ using Xeptions;
 
 namespace xChanger.MVC.Models.Orchestrations.Groups
 {
-    public class GroupOchrestartionValidationException : Xeption
+    public class GroupOrchestartionValidationException : Xeption
     {
-        public GroupOchrestartionValidationException(Xeption innerException)
+        public GroupOrchestartionValidationException(Xeption innerException)
             : base("Group validate error occured. fix the errors", innerException)
         { }
     }

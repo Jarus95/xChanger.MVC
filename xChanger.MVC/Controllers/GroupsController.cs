@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿//=================================
+// Copyright (c) Tarteeb LLC.
+// Powering True Leadership
+//=================================
+
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Text.RegularExpressions;
+using xChanger.MVC.Models.Foundations.Groups;
 using xChanger.MVC.Services.Orchestrations;
 
 namespace xChanger.MVC.Controllers
@@ -16,7 +21,12 @@ namespace xChanger.MVC.Controllers
         {
             return View();
         }
-     
-        
+        public IActionResult ShowGroups()
+        {
+            IQueryable<Group> groups = orchestrationService.RetrieveAllGroups();
+            return View(groups);
+
+        }
+
     }
 }

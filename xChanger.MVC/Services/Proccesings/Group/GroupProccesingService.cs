@@ -38,7 +38,7 @@ namespace xChanger.MVC.Services.Proccesings.Group
             group.Id = Guid.NewGuid();
             group.GroupName = name;
 
-            return await groupService.AddGroupAsyc(group);
+            return await groupService.AddGroupAsync(group);
         });
 
         public ApplicantsGroup RetrieveGroupByName(string name)
@@ -49,5 +49,8 @@ namespace xChanger.MVC.Services.Proccesings.Group
 
             return group;
         }
+
+        public IQueryable<ApplicantsGroup> RetrieveAllGroups()=>
+            groupService.RetrieveAllGroups();
     }
 }
