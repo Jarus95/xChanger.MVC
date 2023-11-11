@@ -4,7 +4,10 @@
 //=================================
 
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Models.Foundations.Groups;
 using xChanger.MVC.Services.Orchestrations;
 
@@ -25,8 +28,7 @@ namespace xChanger.MVC.Controllers
         {
             IQueryable<Group> groups = orchestrationService.RetrieveAllGroups();
             return View(groups);
-
         }
-
     }
+    
 }
