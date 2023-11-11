@@ -15,4 +15,5 @@ public interface IOrchestrationService
 {
     Task ProccesingImportRequest(IFormFile file);
     IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
+    IQueryable<Group> RetrieveAllGroups();
 }

@@ -69,4 +69,8 @@ public partial class OrchestrationService : IOrchestrationService
 
     public IQueryable<ExternalApplicantModel> RetrieveAllApplicants() =>
              this.applicantProccesingService.RetrieveAllApplicants();
+
+    public IQueryable<Group> RetrieveAllGroups()=>
+        this.groupProccesingService.RetrieveAllGroups();
+    
 }
