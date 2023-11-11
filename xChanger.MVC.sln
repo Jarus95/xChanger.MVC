@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xChanger.MVC", "xChanger.MVC\xChanger.MVC.csproj", "{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xChanger.MVC", "xChanger.MVC\xChanger.MVC.csproj", "{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xChanger.Infrastructure", "xChanger.Infrastructure\xChanger.Infrastructure.csproj", "{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

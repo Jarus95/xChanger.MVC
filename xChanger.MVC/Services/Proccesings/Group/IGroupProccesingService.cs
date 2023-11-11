@@ -3,7 +3,9 @@
 // Powering True Leadership
 //=================================
 
+using System.Linq;
 using System.Threading.Tasks;
+using xChanger.MVC.Models.Foundations.Applicants;
 using ApplicantsGroup = xChanger.MVC.Models.Foundations.Groups.Group;
 namespace xChanger.MVC.Services.Proccesings.Group
 {
@@ -11,5 +13,6 @@ namespace xChanger.MVC.Services.Proccesings.Group
     {
         ValueTask<ApplicantsGroup> EnsureGroupExistsByName(string name);
         ApplicantsGroup RetrieveGroupByName(string name);
+        IQueryable<ApplicantsGroup> RetrieveAllGroups();
     }
 }

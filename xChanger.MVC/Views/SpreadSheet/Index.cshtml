@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form class="form-control" method="post" asp-action="GetFile" enctype="multipart/form-data">
+    <div class="col-auto">
+        <div class="mb-3">
+            <input class="form-control" type="file" name="formFile">
+            <label for="formFile" class="form-label">import xlsx file</label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3"> <i class="fa-solid fa-upload"></i></button>
+    </div>
+</form>

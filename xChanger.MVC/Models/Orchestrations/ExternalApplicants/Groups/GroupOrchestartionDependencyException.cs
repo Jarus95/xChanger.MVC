@@ -7,9 +7,9 @@ using Xeptions;
 
 namespace xChanger.MVC.Models.Orchestrations.Groups
 {
-    public class GroupOchrestartionDependencyException : Xeption
+    public class GroupOrchestartionDependencyException : Xeption
     {
-        public GroupOchrestartionDependencyException(Xeption innerException)
+        public GroupOrchestartionDependencyException(Xeption innerException)
             : base("Group dependency error occured fix the errors",  innerException)
         { }
     }
