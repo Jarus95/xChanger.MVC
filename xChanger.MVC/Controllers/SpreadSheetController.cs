@@ -38,15 +38,15 @@ namespace xChanger.MVC.Controllers
                 return BadRequest(externalApplicantOrchestrationValidationException.Message + " "
                     + externalApplicantOrchestrationValidationException.InnerException.Message);
             }
-            catch (GroupOchrestartionValidationException groupOchrestartionValidationException)
+            catch (GroupOrchestartionValidationException groupOchrestartionValidationException)
             {
                 return BadRequest(groupOchrestartionValidationException.Message + " " +
                     groupOchrestartionValidationException.InnerException.Message);
             }
-            catch (GroupOchrestartionDependencyException groupOchrestartionDependencyException)
+            catch (GroupOrchestartionDependencyException groupOrchestartionDependencyException)
             {
-                return BadRequest(groupOchrestartionDependencyException.Message + " " +
-                    groupOchrestartionDependencyException.InnerException.Message);
+                return BadRequest(groupOrchestartionDependencyException.Message + " " +
+                    groupOrchestartionDependencyException.InnerException.Message);
             }
             catch (GroupOrchestartionDependencyValidationException groupOrchestartionDependencyValidationException)
             {
