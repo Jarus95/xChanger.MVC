@@ -16,11 +16,7 @@ namespace xChanger.MVC.Controllers
         {
             return View();
         }
-        public IActionResult ShowGroups()
-        {
-            IQueryable<Group> groups=orchestrationService.RetrieveAllApplicants();
-            return View(groups);
-        }
+     
         
     }
 }
