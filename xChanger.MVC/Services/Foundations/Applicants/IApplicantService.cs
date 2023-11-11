@@ -14,5 +14,8 @@ namespace xChanger.MVC.Services.Foundations.Applicants
     {
         ValueTask<ExternalApplicantModel> AddApplicantAsync(ExternalApplicantModel externalApplicantModel);
         IQueryable<ExternalApplicantModel> RetrieveAllExternalApplicantModels();
+        ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+        ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+
     }
 }
