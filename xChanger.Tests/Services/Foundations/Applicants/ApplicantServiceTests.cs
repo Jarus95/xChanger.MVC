@@ -15,7 +15,7 @@ using xChanger.MVC.Services.Foundations.Applicants;
 using Tynamix.ObjectFiller;
 using Xeptions;
 
-namespace xChanger.Tests.Services.Foundations.Applicants
+namespace xChanger.MVC.Tests.Services.Foundations.Applicants
 {
     public partial class ApplicantServiceTests
     {
