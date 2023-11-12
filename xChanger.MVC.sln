@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xChanger.MVC", "xChanger.MVC\xChanger.MVC.csproj", "{86BF6568-DD9F-47A4-AF3D-3B8D55B0E35A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xChanger.Infrastructure", "xChanger.Infrastructure\xChanger.Infrastructure.csproj", "{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xChanger.Infrastructure", "xChanger.Infrastructure\xChanger.Infrastructure.csproj", "{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xChanger.MVC.Tests", "xChanger.Tests\xChanger.MVC.Tests.csproj", "{1FB3006B-80D8-42E4-B897-96731696C7C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFB23735-7EC8-4FCE-B19D-CAB2AE21DCFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FB3006B-80D8-42E4-B897-96731696C7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB3006B-80D8-42E4-B897-96731696C7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB3006B-80D8-42E4-B897-96731696C7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB3006B-80D8-42E4-B897-96731696C7C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
