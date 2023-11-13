@@ -12,10 +12,13 @@ using xChanger.MVC.Services.Orchestrations;
 using xChanger.MVC.Services.Proccesings.Applicants;
 using xChanger.MVC.Services.Proccesings.Group;
 using xChanger.MVC.Services.Proccesings.SpreadSheet;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<StorageBroker>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StorageBroker>();
 builder.Services.AddSingleton<IStorageBroker, StorageBroker>();
@@ -41,10 +44,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",

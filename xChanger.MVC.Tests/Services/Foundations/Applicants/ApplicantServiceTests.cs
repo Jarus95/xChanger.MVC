@@ -3,7 +3,6 @@
 // Powering True Leadership
 //=================================
 
-using Microsoft.Data.SqlClient;
 using Moq;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
@@ -52,7 +51,7 @@ namespace xChanger.MVC.Tests.Services.Foundations.Applicants
 
         private Expression<Func<Xeption, bool>> SameExceptionAss(Xeption expectedException) =>
             actualException => actualException.SameExceptionAs(expectedException);
-        private static SqlException GetSqlError() =>
-        (SqlException)FormatterServices.GetSafeUninitializedObject(typeof(SqlException));
+        //private static SqlException GetSqlError() =>
+        //(SqlException)FormatterServices.GetSafeUninitializedObject(typeof(SqlException));
     }
 }
