@@ -364,3 +364,6 @@ FodyWeavers.xsd
 /xChanger.MVC/xChanger.db-shm
 /xChanger.MVC/xChanger.db-wal
 /xChanger.MVC/xChanger.db
+/xChanger.MVC/xChanger.db
+/xChanger.MVC/xChanger.db-shm
+/xChanger.MVC/xChanger.db-wal
