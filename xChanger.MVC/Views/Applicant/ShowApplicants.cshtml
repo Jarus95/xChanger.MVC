@@ -1,10 +1,8 @@
 ﻿@using xChanger.MVC.Models.Foundations.Applicants;
 @model IQueryable<ExternalApplicantModel>
-
-
 @{
     ViewData["Title"] = "ShowData";
-    if (TempData["infoPanel"] != null)
+    if (TempData["infoApplicantPanel"] != null)
     {
 
         <script>

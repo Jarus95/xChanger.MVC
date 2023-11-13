@@ -5,16 +5,10 @@
 
 using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using xChanger.MVC.Models.Foundations.Applicants;
-using xChanger.MVC.Models.Foundations.Groups;
-using xChanger.MVC.Models.Orchestrations.ExternalApplicants;
-using xChanger.MVC.Models.Orchestrations.Groups;
-using xChanger.MVC.Models.Orchestrations.SpreadSheet;
 using xChanger.MVC.Services.Orchestrations;
 
 namespace xChanger.MVC.Controllers
@@ -40,15 +34,6 @@ namespace xChanger.MVC.Controllers
 
         }
 
-        public IActionResult ShowApplicantsByGroupId(Guid id)
-        {
-            IQueryable<ExternalApplicantModel> applicants =
-                  orchestrationService.RetrieveAllApplicants().
-                         Where(applicant => applicant.GroupId == id);
-
-            return View("ShowApplicants", applicants);
-        }
-
         [HttpGet]
         public IActionResult EditApplicant(Guid id)
         {
@@ -65,15 +50,22 @@ namespace xChanger.MVC.Controllers
             return View(viewModel);
         }
 
+        public IActionResult ShowApplicantsByGroupId(Guid id)
+        {
+            IQueryable<ExternalApplicantModel> applicants =
+                  orchestrationService.RetrieveAllApplicants().
+                         Where(applicant => applicant.GroupId == id);
+
+            return View("ShowApplicants", applicants);
+        }
 
         [HttpGet]
         public async Task<IActionResult> DeleteApplicant(Guid id)
         {
-          //  await Task.Delay(500);
             var applicants = orchestrationService.RetrieveAllApplicants();
             ExternalApplicantModel applicant = applicants.FirstOrDefault(s => s.Id == id);
             await orchestrationService.DeleteApplicantModelAsync(applicant);
-            TempData["infoPanel"] = "true";
+            TempData["infoApplicantPanel"] = "true";
             return RedirectToAction(nameof(ShowApplicants));
 
         }

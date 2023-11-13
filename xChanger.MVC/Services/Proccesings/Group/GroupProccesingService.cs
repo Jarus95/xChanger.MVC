@@ -52,6 +52,11 @@ namespace xChanger.MVC.Services.Proccesings.Group
 
         public IQueryable<ApplicantsGroup> RetrieveAllGroups() =>
             TryCatch(() => groupService.RetrieveAllGroups());
-            
+
+        public async ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group) =>
+            await this.groupService.UpdateGroupAsync(group);
+
+        public async Task DeleteGroupAsync(ApplicantsGroup group) =>
+            await this.groupService.DeleteGroupAsync(group);
     }
 }

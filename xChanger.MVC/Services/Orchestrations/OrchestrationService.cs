@@ -83,6 +83,11 @@ public partial class OrchestrationService : IOrchestrationService
 
     public IQueryable<Group> RetrieveAllGroups()=>
         this.groupProccesingService.RetrieveAllGroups();
+    public async ValueTask<Group> UpdateGroupAsync(Group group) =>
+        await this.groupProccesingService.UpdateGroupAsync(group);
+
+    public async Task DeleteGroupAsync(Group group) =>
+        await this.groupProccesingService.DeleteGroupAsync(group);
 
     public async Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
         await this.applicantProccesingService.DeleteApplicantModelAsync(externalApplicantModel);
