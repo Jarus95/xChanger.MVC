@@ -38,5 +38,7 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
 
         public async ValueTask<ExternalApplicantModel> GetApplicantByIdAsync(Guid id) =>
             await this.applicantService.GetApplicantByIdAsync(id);
+
+        public string GetDownloadedFileName() => this.applicantService.GetDownloadedFileName();
     }
 }

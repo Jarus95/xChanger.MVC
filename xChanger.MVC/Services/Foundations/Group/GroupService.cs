@@ -42,5 +42,6 @@ namespace xChanger.MVC.Services.Foundations.Group
         public IQueryable<ApplicantsGroup> RetrieveAllGroups() =>
               TryCatch(() => storageBroker.RetrieveAllGroups());
 
+        public string GroupGetDownloadedFileName() => this.storageBroker.GroupGetDownloadedFileName();
     }
 }

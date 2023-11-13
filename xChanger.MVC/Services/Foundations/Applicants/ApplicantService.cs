@@ -51,5 +51,7 @@ namespace xChanger.MVC.Services.Foundations.Applicants
 
         public async ValueTask<ExternalApplicantModel> GetApplicantByIdAsync(Guid id) =>
             await this.storageBroker.SelectExternalApplicantModelIdAsync(id);
+
+        public string GetDownloadedFileName() => storageBroker.ApplicantGetDownloadedFileName();
     }
 }

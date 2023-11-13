@@ -17,5 +17,6 @@ namespace xChanger.MVC.Brokers.Storages
         ValueTask<ExternalApplicantModel> SelectExternalApplicantModelIdAsync(Guid id);
         ValueTask<ExternalApplicantModel> UpdateExternalApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
         Task DeleteExternalApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+        string ApplicantGetDownloadedFileName();
     }
 }

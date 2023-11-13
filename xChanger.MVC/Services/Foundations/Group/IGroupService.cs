@@ -14,5 +14,6 @@ namespace xChanger.MVC.Services.Foundations.Group
         IQueryable<ApplicantsGroup> RetrieveAllGroups();
         ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group);
         Task DeleteGroupAsync(ApplicantsGroup group);
+        string GroupGetDownloadedFileName();
     }
 }

@@ -58,5 +58,8 @@ namespace xChanger.MVC.Services.Proccesings.Group
 
         public async Task DeleteGroupAsync(ApplicantsGroup group) =>
             await this.groupService.DeleteGroupAsync(group);
+
+        public string GroupGetDownloadedFileName() =>
+            this.groupService.GroupGetDownloadedFileName();
     }
 }

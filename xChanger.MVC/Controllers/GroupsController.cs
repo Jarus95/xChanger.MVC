@@ -4,8 +4,10 @@
 //=================================
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Services.Orchestrations;
@@ -16,9 +18,11 @@ namespace xChanger.MVC.Controllers
     public class GroupsController : Controller
     {
         private readonly IOrchestrationService orchestrationService;
-        public GroupsController(IOrchestrationService orchestrationService)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public GroupsController(IOrchestrationService orchestrationService, IWebHostEnvironment hostingEnvironment)
         {
             this.orchestrationService = orchestrationService;
+            _hostingEnvironment = hostingEnvironment;
         }
         public IActionResult Index()
         {
@@ -71,6 +75,25 @@ namespace xChanger.MVC.Controllers
             await orchestrationService.DeleteGroupAsync(group);
             TempData["infoGroupPanel"] = "true";
             return RedirectToAction(nameof(ShowGroups));
+        }
+
+        [HttpGet]
+        public IActionResult Download()
+        {
+            string name = orchestrationService.GroupGetDownloadedFileName();
+            string fileName = name;
+            string wwwrootPath = _hostingEnvironment.WebRootPath;
+            string filePath = Path.Combine(wwwrootPath, "data", fileName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                return File(fileStream, "application/octet-stream", fileName);
+            }
+
+            return NotFound();
+
+
         }
     }
 

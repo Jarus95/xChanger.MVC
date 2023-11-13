@@ -4,9 +4,11 @@
 //=================================
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using xChanger.MVC.Models.Foundations.Groups;
 
 namespace xChanger.MVC.Brokers.Storages
@@ -15,6 +17,33 @@ namespace xChanger.MVC.Brokers.Storages
     {
         public DbSet<Group> Group { get; set; }
 
+
+        public string GroupGetDownloadedFileName()
+        {
+            var groups = RetrieveAllGroups();
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using var package = new ExcelPackage();
+
+
+            var worksheet = package.Workbook.Worksheets.Add("Sheet1");
+            worksheet.Cells["A1"].Value = "GroupName";
+
+            int row = 2;
+            foreach (var group in groups)
+            {
+                int column = 1;
+
+                worksheet.Cells[row, column].Value = group.GroupName;
+                column++;
+                row++;
+            }
+            string fileName = "groups.xlsx";
+            string filePath = Path.Combine(rootPath, fileName);
+            package.SaveAs(new FileInfo(filePath));
+            return fileName;
+
+        }
         public async ValueTask<Group> InsertGroupAsync(Group group) =>
             await InsertAsync(group);
 

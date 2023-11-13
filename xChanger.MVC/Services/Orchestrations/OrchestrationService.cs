@@ -91,4 +91,8 @@ public partial class OrchestrationService : IOrchestrationService
 
     public async Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
         await this.applicantProccesingService.DeleteApplicantModelAsync(externalApplicantModel);
+
+    public string ApplicantGetDownloadedFileName() => this.applicantProccesingService.GetDownloadedFileName();
+
+    public string GroupGetDownloadedFileName() => this.groupProccesingService.GroupGetDownloadedFileName();
 }
