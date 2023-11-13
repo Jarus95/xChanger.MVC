@@ -16,6 +16,6 @@ namespace xChanger.MVC.Brokers.Storages
         IQueryable<Group> RetrieveAllGroups();
         ValueTask<Group> SelectGroupIdAsync(Guid id);
         ValueTask<Group> UpdateGroupAsync(Group group);
-        ValueTask<Group> DeleteGroupAsync(Group group);
+        Task DeleteGroupAsync(Group group);
     }
 }

@@ -4,18 +4,27 @@
 @{
     ViewData["Title"] = "ShowData";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (TempData["infoGroupPanel"] != null)
+    {
+
+        <script>
+            window.onload = function () {
+                DeleteInput();
+            };
+        </script>
+    }
 }
 
-<h1>View</h1>
+<h1>Groups List</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">GroupName</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -26,17 +35,15 @@
             {
         <tr>
         <th scope="row">@i</th>
-        <td>@item.GroupName</td>
+                    <td><a asp-controller="Applicant" asp-action="ShowApplicantsByGroupId" asp-route-id="@item.Id" class="btn btn-info">@item.GroupName</a></td>
             <td>
-               <a asp-route-groupId="@item.Id" asp-action="EditGroup" class="btn btn-primary">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
+               <a asp-route-Id="@item.Id" asp-action="EditGroup" class="btn btn-primary">
+                                <i class="fa-solid fa-pen-to-square"></i> </a>
             </td>
 
             <td>
-                <a asp-route-id="@item.Id" asp-action="DeleteGroup" class="btn btn-danger" onclick="return DeleteInput()">
-                                <i class="fa-solid fa-delete-left"></i>
-                            </a>
+                <a asp-route-id="@item.Id" asp-action="DeleteGroup" class="btn btn-danger">
+                                <i class="fa-solid fa-delete-left"></i> </a>
             </td>
         </tr>
         i++;
@@ -46,7 +53,8 @@
 </table>
 <br />
     <a asp-action="Download" class="btn btn-primary">Download</a>
-@*    <script>
+
+ <script>
     function DeleteInput(){
 
      Swal.fire({
@@ -57,6 +65,6 @@
   timer: 1000
 })
     }
-    </script>*@
+</script>
 
 

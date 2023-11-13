@@ -3,7 +3,9 @@
 // Powering True Leadership
 //=================================
 
+using System.Linq;
 using System.Threading.Tasks;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions;
 using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
 using xChanger.MVC.Models.Proccesings.Group;
 using Xeptions;
@@ -12,9 +14,21 @@ namespace xChanger.MVC.Services.Proccesings.Group
 {
     public partial class GroupProccesingService
     {
-        private delegate ValueTask<ApplicantsGroup> ReturningGroupsFunctions();
+        private delegate ValueTask<ApplicantsGroup> ReturningGroupFunctions();
+        private delegate IQueryable<ApplicantsGroup> ReturningGroupsFunctions();
 
-        private async ValueTask<ApplicantsGroup> TryCatch(ReturningGroupsFunctions returningGroupsFunctions)
+        private IQueryable<ApplicantsGroup> TryCatch(ReturningGroupsFunctions returningGroupsFunctions)
+        {
+            try
+            {
+                return returningGroupsFunctions();
+            }
+            catch (FailedServiceGroupException FailedServiceGroupException)
+            {
+                throw CreateAndLogGroupProccesingServiceException(FailedServiceGroupException.InnerException as Xeption);
+            }
+        }
+        private async ValueTask<ApplicantsGroup> TryCatch(ReturningGroupFunctions returningGroupsFunctions)
         {
             try
             {

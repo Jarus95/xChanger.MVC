@@ -34,7 +34,13 @@ namespace xChanger.MVC.Services.Foundations.Group
             return await storageBroker.InsertGroupAsync(group);
         });
 
+        public async Task DeleteGroupAsync(ApplicantsGroup group) =>
+            await this.storageBroker.DeleteGroupAsync(group);
+        public async ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group) =>
+            await this.storageBroker.UpdateGroupAsync(group);
+
         public IQueryable<ApplicantsGroup> RetrieveAllGroups() =>
               TryCatch(() => storageBroker.RetrieveAllGroups());
+
     }
 }

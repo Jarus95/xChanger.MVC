@@ -4,48 +4,108 @@
 //=================================
 
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
-using xChanger.MVC.Models.Orchestrations.ExternalApplicants.Exceptions;
+using xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories;
+using xChanger.MVC.Models.Orchestrations.ExternalApplicants;
 using xChanger.MVC.Models.Orchestrations.Groups;
+using xChanger.MVC.Models.Orchestrations.SpreadSheet;
+using xChanger.MVC.Models.Proccesings.Applicant;
 using xChanger.MVC.Models.Proccesings.Group;
 using xChanger.MVC.Models.Proccesings.SpreadSheet.Exceptions;
+using xChanger.MVC.Services.Proccesings.Applicants;
 using Xeptions;
 
 namespace xChanger.MVC.Services.Orchestrations
 {
     public partial class OrchestrationService
     {
-        public delegate Task ReturningExternalApplicantFunction();
-
-        public async Task TryCatch(ReturningExternalApplicantFunction returningExternalApplicantFunction)
+        public delegate Task ProccesingImportFunction();
+        public async Task TryCatch(ProccesingImportFunction proccesingImportFunction)
         {
             try
             {
-                await returningExternalApplicantFunction();
+                await proccesingImportFunction();
             }
             catch (SpreadSheetProccesingValidationException spreadSheetProccesingValidationException)
             {
-                throw CreateAndLogApplicanValidationException(spreadSheetProccesingValidationException.InnerException as Xeption);
+                throw CreateAndLogSpreadSheetOrchestrationValidationException(spreadSheetProccesingValidationException.InnerException as Xeption);
             }
-            catch(GroupProccesingValidationException groupProccesingValidationException)
+            catch (GroupProccesingValidationException groupProccesingValidationException)
             {
-                throw CreateAndLogGroupValidationException(groupProccesingValidationException.InnerException as Xeption);
+                throw CreateAndLogGroupOrchestrationValidationException(groupProccesingValidationException.InnerException as Xeption);
             }
             catch(GroupProccesingDependencyException groupProccesingDependencyException)
             {
-                throw CreateAndLogGroupDependencyException(groupProccesingDependencyException.InnerException as Xeption);
+                throw CreateAndLogGroupOrchestrationDependencyException(groupProccesingDependencyException.InnerException as Xeption);
             }
             catch(GroupProccesingDependencValidationException groupProccesingDependencValidationException)
             {
-                throw CreateAndLogGroupDependencyValidationException(groupProccesingDependencValidationException.InnerException as Xeption);
+                throw CreateAndLogGroupOrchestrationDependencyValidationException(groupProccesingDependencValidationException.InnerException as Xeption);
             }
             catch(GroupProccesingServiceException groupProccesingServiceException)
             {
-                throw CreateAndLogGroupServiceException(groupProccesingServiceException.InnerException as Xeption);
+                throw CreateAndLogGroupOrchestrationServiceException(groupProccesingServiceException.InnerException as Xeption);
+            }
+            catch(ApplicantProccesingValidationException applicantProccesingValidationException)
+            {
+                throw CreateAndLogApplicantOrchestrationValidationException(applicantProccesingValidationException.InnerException as Xeption);
+            }
+            catch(ApplicantProccesingDependencyException applicantProccesingDependencyException)
+            {
+                throw CreateAndLogApplicantOrchestrationDependencyException(applicantProccesingDependencyException.InnerException as Xeption);
+            }
+            catch(ApplicantProccesingDependencyValidationException applicantProccesingDependencyValidationException)
+            {
+                throw CreateAndLogApplicantOrchestrationDependencyValidationException(applicantProccesingDependencyValidationException.InnerException as Xeption);
+            }
+            catch(ApplicantProccesingServiceException applicantProccesingServiceException)
+            {
+                throw CreateAndLogApplicantOrchestrationServiceException(applicantProccesingServiceException.InnerException as Xeption);
             }
         }
 
-        private GroupOrchestartionDependencyValidationException CreateAndLogGroupDependencyValidationException(Xeption xeption)
+        private ApplicantOrchestrationServiceException CreateAndLogApplicantOrchestrationServiceException(Xeption xeption)
+        {
+            ApplicantOrchestrationServiceException applicantOrchestrationServiceException =
+                new ApplicantOrchestrationServiceException(xeption);
+
+            this.loggingBroker.LogError(applicantOrchestrationServiceException);
+
+            return applicantOrchestrationServiceException;
+        }
+
+        private ApplicantDependencyValidationException CreateAndLogApplicantOrchestrationDependencyValidationException(Xeption xeption)
+        {
+            var applicantDependencyValidationException = 
+                new ApplicantDependencyValidationException(xeption);
+
+            this.loggingBroker.LogError(applicantDependencyValidationException);
+
+            return applicantDependencyValidationException;
+        }
+
+        private SpreadSheetOrchestrationValidationException CreateAndLogSpreadSheetOrchestrationValidationException(Xeption xeption)
+        {
+            SpreadSheetOrchestrationValidationException spreadSheetOrchestrationValidationException =
+                new SpreadSheetOrchestrationValidationException(xeption);
+
+            this.loggingBroker.LogError(spreadSheetOrchestrationValidationException);
+
+            return spreadSheetOrchestrationValidationException;
+        }
+
+        private ApplicantOrchestrationDependencyException CreateAndLogApplicantOrchestrationDependencyException(Xeption xeption)
+        {
+            var applicantOrchestrationDependencyException = 
+                new ApplicantOrchestrationDependencyException(xeption);
+
+            this.loggingBroker.LogError(applicantOrchestrationDependencyException);
+
+            return applicantOrchestrationDependencyException;
+        }
+
+        private GroupOrchestartionDependencyValidationException CreateAndLogGroupOrchestrationDependencyValidationException(Xeption xeption)
         {
             var groupOrchestartionDependencyValidationException =
                 new GroupOrchestartionDependencyValidationException(xeption);
@@ -55,7 +115,7 @@ namespace xChanger.MVC.Services.Orchestrations
             return groupOrchestartionDependencyValidationException;
         }
 
-        private GroupOrchestartionDependencyException CreateAndLogGroupDependencyException(Xeption xeption)
+        private GroupOrchestartionDependencyException CreateAndLogGroupOrchestrationDependencyException(Xeption xeption)
         {
             var groupOrchestartionDependencyException = 
                 new GroupOrchestartionDependencyException(xeption);
@@ -65,7 +125,7 @@ namespace xChanger.MVC.Services.Orchestrations
             return groupOrchestartionDependencyException;
         }
 
-        private GroupOrchestrationServiceException CreateAndLogGroupServiceException(Xeption xeption)
+        private GroupOrchestrationServiceException CreateAndLogGroupOrchestrationServiceException(Xeption xeption)
         {
             GroupOrchestrationServiceException groupOrchestrationServiceException =
                 new GroupOrchestrationServiceException(xeption);
@@ -75,7 +135,7 @@ namespace xChanger.MVC.Services.Orchestrations
             return groupOrchestrationServiceException;
         }
 
-        private ExternalApplicantOrchestrationValidationException CreateAndLogApplicanValidationException(Xeption xeption)
+        private ExternalApplicantOrchestrationValidationException CreateAndLogApplicantOrchestrationValidationException(Xeption xeption)
         {
             var externalApplicantOrchestrationValidationException =
                 new ExternalApplicantOrchestrationValidationException(xeption);
@@ -85,7 +145,7 @@ namespace xChanger.MVC.Services.Orchestrations
             return externalApplicantOrchestrationValidationException;
         }
 
-        private GroupOrchestartionValidationException CreateAndLogGroupValidationException(Xeption xeption)
+        private GroupOrchestartionValidationException CreateAndLogGroupOrchestrationValidationException(Xeption xeption)
         {
             var groupOchrestartionValidationException =
                 new GroupOrchestartionValidationException(xeption);

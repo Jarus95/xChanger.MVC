@@ -3,6 +3,7 @@
 // Powering True Leadership
 //=================================
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,11 @@ namespace xChanger.MVC.Services.Orchestrations;
 public interface IOrchestrationService
 {
     Task ProccesingImportRequest(IFormFile file);
+    ValueTask<ExternalApplicantModel> GetApplicantById(Guid id);
     IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
     IQueryable<Group> RetrieveAllGroups();
+    ValueTask<Group> UpdateGroupAsync(Group group);
+    Task DeleteGroupAsync(Group group);
+    ValueTask<ExternalApplicantModel> UpdateApplicant(ExternalApplicantModel externalApplicantModel);
+    Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
 }

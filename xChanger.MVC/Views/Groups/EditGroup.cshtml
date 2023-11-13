@@ -1,0 +1,46 @@
+﻿@using xChanger.MVC.Models.Foundations.Groups;
+@model Group
+@{
+    ViewData["Title"] = "EditGroup";
+}
+
+<h1>EditGroup</h1>
+
+<form method="post" asp-action="EditGroup">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container p-3">
+        <input asp-for="Id" hidden />
+        <div class="row">
+            <h2 class="text-info pl-3">Edit Applicant</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="GroupName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="GroupName" class="form-control" value="@Model.GroupName" />
+                        <span asp-validation-for="GroupName" class="text-danger"></span>
+                    </div>
+
+                </div>
+                 <br />
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Edit" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="ShowGroups" class="btn btn-success w-100"> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</form>

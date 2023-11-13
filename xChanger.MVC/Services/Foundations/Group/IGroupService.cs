@@ -12,5 +12,7 @@ namespace xChanger.MVC.Services.Foundations.Group
     {
         ValueTask<ApplicantsGroup> AddGroupAsync(ApplicantsGroup group);
         IQueryable<ApplicantsGroup> RetrieveAllGroups();
+        ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group);
+        Task DeleteGroupAsync(ApplicantsGroup group);
     }
 }
