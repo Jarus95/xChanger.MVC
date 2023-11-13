@@ -31,7 +31,7 @@ namespace xChanger.MVC.Services.Proccesings.Group
         }
 
         private ValueTask<ApplicantsGroup> AddGroupAsync(string name) =>
-        TryCatch(async() =>
+        TryCatch(async () =>
         {
             ApplicantsGroup group = new ApplicantsGroup();
 
@@ -43,14 +43,15 @@ namespace xChanger.MVC.Services.Proccesings.Group
 
         public ApplicantsGroup RetrieveGroupByName(string name)
         {
-            IQueryable<ApplicantsGroup> Groups = groupService.RetrieveAllGroups();
-            ApplicantsGroup group = 
+            IQueryable<ApplicantsGroup> Groups = RetrieveAllGroups();
+            ApplicantsGroup group =
                 Groups.FirstOrDefault(groupName => groupName.GroupName == name);
 
             return group;
         }
 
-        public IQueryable<ApplicantsGroup> RetrieveAllGroups()=>
-            groupService.RetrieveAllGroups();
+        public IQueryable<ApplicantsGroup> RetrieveAllGroups() =>
+            TryCatch(() => groupService.RetrieveAllGroups());
+            
     }
 }

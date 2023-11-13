@@ -6,9 +6,11 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using xChanger.MVC.Models.Orchestrations.ExternalApplicants.Exceptions;
 using xChanger.MVC.Models.Orchestrations.Groups;
 using xChanger.MVC.Services.Orchestrations;
+using xChanger.MVC.Models.Orchestrations.ExternalApplicants;
+using xChanger.MVC.Models.Orchestrations.SpreadSheet;
+using xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories;
 
 namespace xChanger.MVC.Controllers
 {
@@ -32,11 +34,11 @@ namespace xChanger.MVC.Controllers
                 await orchestrationService.ProccesingImportRequest(formFile);
                 return RedirectToAction("ShowApplicants", "Applicant");
             }
-            catch (ExternalApplicantOrchestrationValidationException externalApplicantOrchestrationValidationException)
+            catch (SpreadSheetOrchestrationValidationException SpreadSheetOrchestrationValidationException)
             {
 
-                return BadRequest(externalApplicantOrchestrationValidationException.Message + " "
-                    + externalApplicantOrchestrationValidationException.InnerException.Message);
+                return BadRequest(SpreadSheetOrchestrationValidationException.Message + " "
+                    + SpreadSheetOrchestrationValidationException.InnerException.Message);
             }
             catch (GroupOrchestartionValidationException groupOchrestartionValidationException)
             {
@@ -53,11 +55,30 @@ namespace xChanger.MVC.Controllers
                 return BadRequest(groupOrchestartionDependencyValidationException.Message + " " +
                     groupOrchestartionDependencyValidationException.InnerException.Message);
             }
-            //exceptions
             catch (GroupOrchestrationServiceException groupOrchestrationServiceException)
             {
                 return BadRequest(groupOrchestrationServiceException.Message + " " +
                     groupOrchestrationServiceException.InnerException.Message);
+            }
+            catch(ExternalApplicantOrchestrationValidationException applicantOrchestrationValidationException)
+            {
+                return BadRequest(applicantOrchestrationValidationException.Message + " " +
+                    applicantOrchestrationValidationException.InnerException.Message);
+            }
+            catch(ApplicantOrchestrationDependencyException applicantOrchestrationDependencyException)
+            {
+                return BadRequest(applicantOrchestrationDependencyException.Message + " " +
+                    applicantOrchestrationDependencyException.InnerException.Message);
+            }
+            catch(ApplicantDependencyValidationException applicantDependencyValidationException)
+            {
+                return BadRequest(applicantDependencyValidationException.Message + " " +
+                    applicantDependencyValidationException.InnerException);
+            }
+            catch(ApplicantOrchestrationServiceException applicantOrchestrationServiceException)
+            {
+                return BadRequest(applicantOrchestrationServiceException + " " +
+                    applicantOrchestrationServiceException.InnerException);
             }
         }
     }

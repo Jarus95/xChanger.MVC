@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories;
 using xChanger.MVC.Models.Foundations.Groups.Exceptions.Categories;
@@ -10,9 +11,10 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
 {
     public partial class ApplicantProccesingService
     {
-        private delegate ValueTask<ExternalApplicantModel> ReturningApplicantsFunctions();
+        private delegate ValueTask<ExternalApplicantModel> ReturningApplicantFunctions();
+        private delegate IQueryable<ExternalApplicantModel> ReturningApplicantsFunctions();
 
-        private async ValueTask<ExternalApplicantModel> TryCatch(ReturningApplicantsFunctions returningApplicantsFunctions)
+        private async ValueTask<ExternalApplicantModel> TryCatch(ReturningApplicantFunctions returningApplicantsFunctions)
         {
             try
             {
@@ -27,10 +29,22 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
                 throw CreateAndLogApplicantProccesingDependencException(applicantDependencyException.InnerException as Xeption);
             }
             catch (ApplicantDependencyValidationException applicantDependencyValidationException)
-            {
+            {      
                 throw CreateAndLogApplicantProccesingDependencValidationException(applicantDependencyValidationException.InnerException as Xeption);
             }
             catch (ApplicantServiceException applicantServiceException)
+            {
+                throw CreateAndLogApplicantProccesingServiceException(applicantServiceException.InnerException as Xeption);
+            }
+        }
+
+        private IQueryable<ExternalApplicantModel> TryCatch(ReturningApplicantsFunctions returningApplicantsFunctions)
+        {
+            try
+            {
+                return returningApplicantsFunctions();
+            }
+            catch(ApplicantServiceException applicantServiceException)
             {
                 throw CreateAndLogApplicantProccesingServiceException(applicantServiceException.InnerException as Xeption);
             }

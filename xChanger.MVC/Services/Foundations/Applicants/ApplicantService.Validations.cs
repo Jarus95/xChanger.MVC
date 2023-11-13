@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Models.Foundations.Applicants.Exceptions;
 
@@ -6,7 +7,7 @@ namespace xChanger.MVC.Services.Foundations.Applicants
 {
     public partial class ApplicantService
     {
-        private void ValidateApplicantOnAdd(ExternalApplicantModel externalApplicantModel)
+        private void ValidateApplicanAdd(ExternalApplicantModel externalApplicantModel)
         {
             ValidateApplicantNotNull(externalApplicantModel);
 
@@ -18,7 +19,25 @@ namespace xChanger.MVC.Services.Foundations.Applicants
                 (Rule: IsInvalid(externalApplicantModel.PhoneNumber), Parameter: nameof(ExternalApplicantModel.PhoneNumber)));
 
         }
+        private void ValidateApplicantOnModify(ExternalApplicantModel externalApplicantModel)
+        {
+            ValidateApplicantNotNull(externalApplicantModel);
 
+            Validate(
+            (Rule: IsInvalid(externalApplicantModel.Id), Parameter: nameof(ExternalApplicantModel.Id)),
+            (Rule: IsInvalid(externalApplicantModel.FirstName), Parameter: nameof(ExternalApplicantModel.FirstName)),
+            (Rule: IsInvalid(externalApplicantModel.LastName), Parameter: nameof(ExternalApplicantModel.LastName)),
+            (Rule: IsInvalid(externalApplicantModel.Email), Parameter: nameof(ExternalApplicantModel.Email)),
+            (Rule: IsInvalid(externalApplicantModel.PhoneNumber), Parameter: nameof(ExternalApplicantModel.PhoneNumber)));
+        }
+
+        private void ValidateApplicanId(ExternalApplicantModel externalApplicantModel)
+        {
+            ValidateApplicantNotNull(externalApplicantModel);
+
+            Validate(
+                (Rule: IsInvalid(externalApplicantModel.Id), Parameter: nameof(externalApplicantModel.Id)));
+        }
         private void ValidateApplicantNotNull(ExternalApplicantModel externalApplicantModel)
         {
             if (externalApplicantModel is null)

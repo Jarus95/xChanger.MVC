@@ -13,9 +13,10 @@ namespace xChanger.MVC.Services.Foundations.Applicants
     public interface IApplicantService
     {
         ValueTask<ExternalApplicantModel> AddApplicantAsync(ExternalApplicantModel externalApplicantModel);
+        ValueTask<ExternalApplicantModel> GetApplicantByIdAsync(Guid id);
         IQueryable<ExternalApplicantModel> RetrieveAllExternalApplicantModels();
         ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
-        ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+        Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
 
     }
 }

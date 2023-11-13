@@ -26,15 +26,13 @@ namespace xChanger.MVC.Services.Proccesings.SpreadSheet
             {
                 throw CreateAndLogValidationException(spreadSheetValidationException.InnerException as Xeption);
             }
-
-            catch(SpreadSheetServiceException spreadSheetServiceException)
-            {
-                throw CreateAndLogServiceException(spreadSheetServiceException.InnerException as Xeption);
-            }
-
             catch(EmptyExternalApplicantException emptyExternalApplicantException)
             {
                 throw CreateAndLogValidationException(emptyExternalApplicantException);
+            }
+            catch(SpreadSheetServiceException spreadSheetServiceException)
+            {
+                throw CreateAndLogServiceException(spreadSheetServiceException.InnerException as Xeption);
             }
         }
 
