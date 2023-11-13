@@ -17,6 +17,7 @@ namespace xChanger.MVC.Services.Proccesings.Applicants
         IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
         ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
         Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+        string GetDownloadedFileName();
 
     }
 }

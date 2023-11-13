@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using xChanger.MVC.Models;
 using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Groups;
 
 namespace xChanger.MVC.Brokers.Storages
 {

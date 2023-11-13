@@ -17,5 +17,6 @@ namespace xChanger.MVC.Brokers.Storages
         ValueTask<Group> SelectGroupIdAsync(Guid id);
         ValueTask<Group> UpdateGroupAsync(Group group);
         Task DeleteGroupAsync(Group group);
+        string GroupGetDownloadedFileName();
     }
 }

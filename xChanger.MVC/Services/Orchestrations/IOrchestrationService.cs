@@ -22,4 +22,6 @@ public interface IOrchestrationService
     Task DeleteGroupAsync(Group group);
     ValueTask<ExternalApplicantModel> UpdateApplicant(ExternalApplicantModel externalApplicantModel);
     Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
+    string ApplicantGetDownloadedFileName();
+    string GroupGetDownloadedFileName();
 }
