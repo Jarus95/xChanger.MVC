@@ -69,10 +69,11 @@ namespace xChanger.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteApplicant(Guid id)
         {
-            await Task.Delay(1000);
+          //  await Task.Delay(500);
             var applicants = orchestrationService.RetrieveAllApplicants();
             ExternalApplicantModel applicant = applicants.FirstOrDefault(s => s.Id == id);
             await orchestrationService.DeleteApplicantModelAsync(applicant);
+            TempData["infoPanel"] = "true";
             return RedirectToAction(nameof(ShowApplicants));
 
         }

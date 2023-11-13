@@ -1,9 +1,20 @@
 ﻿@using xChanger.MVC.Models.Foundations.Applicants;
 @model IQueryable<ExternalApplicantModel>
 
-    @{
-        ViewData["Title"] = "ShowData";
+
+@{
+    ViewData["Title"] = "ShowData";
+    if (TempData["infoPanel"] != null)
+    {
+
+        <script>
+            window.onload = function () {
+                DeleteInput();
+            };
+        </script>
     }
+
+}
 
     <table class="table">
         <thead>
@@ -38,7 +49,7 @@
                         </td>
 
                         <td>
-                            <a asp-route-id="@item.Id" asp-action="DeleteApplicant" class="btn btn-danger" onclick="return DeleteInput()">
+                            <a asp-route-id="@item.Id" asp-action="DeleteApplicant" class="btn btn-danger">
                                 <i class="fa-solid fa-delete-left"></i>
                             </a>
                         </td>
@@ -52,15 +63,15 @@
 
     <br />
     <a asp-action="Download" class="btn btn-primary">Download</a>
-        <script>
-            function DeleteInput(){
+<script>
+    function DeleteInput() {
 
-             Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Applicant is Deleted',
-          showConfirmButton: false,
-          timer: 1000
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Applicant is Deleted',
+            showConfirmButton: false,
+            timer: 1000
         })
-            }
-            </script>
+    }
+</script>
