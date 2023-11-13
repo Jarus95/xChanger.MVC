@@ -18,6 +18,8 @@ public interface IOrchestrationService
     ValueTask<ExternalApplicantModel> GetApplicantById(Guid id);
     IQueryable<ExternalApplicantModel> RetrieveAllApplicants();
     IQueryable<Group> RetrieveAllGroups();
+    ValueTask<Group> UpdateGroupAsync(Group group);
+    Task DeleteGroupAsync(Group group);
     ValueTask<ExternalApplicantModel> UpdateApplicant(ExternalApplicantModel externalApplicantModel);
     Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel);
 }

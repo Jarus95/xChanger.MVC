@@ -14,5 +14,7 @@ namespace xChanger.MVC.Services.Proccesings.Group
         ValueTask<ApplicantsGroup> EnsureGroupExistsByName(string name);
         ApplicantsGroup RetrieveGroupByName(string name);
         IQueryable<ApplicantsGroup> RetrieveAllGroups();
+        ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group);
+        Task DeleteGroupAsync(ApplicantsGroup group);
     }
 }

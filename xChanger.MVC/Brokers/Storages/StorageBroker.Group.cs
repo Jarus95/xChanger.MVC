@@ -27,7 +27,7 @@ namespace xChanger.MVC.Brokers.Storages
         public async ValueTask<Group> UpdateGroupAsync(Group group) =>
             await UpdateAsync(group);
 
-        public async ValueTask<Group> DeleteGroupAsync(Group group) =>
+        public async Task DeleteGroupAsync(Group group) =>
             await DeleteAsync(group);
     }
 }
