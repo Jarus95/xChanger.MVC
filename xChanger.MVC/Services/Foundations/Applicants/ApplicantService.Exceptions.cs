@@ -6,7 +6,6 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions.Models.Exceptions;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Models.Foundations.Applicants.Exceptions;
@@ -57,12 +56,12 @@ namespace xChanger.MVC.Services.Foundations.Applicants
 
                 throw CreateAndLogDependencyException(failedApplicantStorageException);
             }
-            catch (SqlException sqlException)
-            {
-                var failedApplicantStorageException = new FailedApplicantStorageException(sqlException);
+            //catch (SqlException sqlException)
+            //{
+            //    var failedApplicantStorageException = new FailedApplicantStorageException(sqlException);
 
-                throw CreateAndLogCriticalDependencyException(failedApplicantStorageException);
-            }
+            //    throw CreateAndLogCriticalDependencyException(failedApplicantStorageException);
+            //}
             catch (Exception exception)
             {
                 var failedApplicantServiceException = new FailedApplicantServiceException(exception);

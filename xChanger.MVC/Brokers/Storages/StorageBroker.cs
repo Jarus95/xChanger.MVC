@@ -3,19 +3,15 @@
 // Powering True Leadership
 //=================================
 
-using System;
 using System.Linq;
 using System.Threading.Tasks;
-using EFxceptions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using xChanger.MVC.Models;
-using xChanger.MVC.Models.Foundations.Applicants;
-using xChanger.MVC.Models.Foundations.Groups;
 
 namespace xChanger.MVC.Brokers.Storages
 {
-    public partial class StorageBroker : EFxceptionsContext, IStorageBroker
+    public partial class StorageBroker : IdentityDbContext, IStorageBroker
     {
         private readonly IConfiguration configuration;
         public StorageBroker(IConfiguration configuration)
