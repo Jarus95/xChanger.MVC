@@ -1,0 +1,93 @@
+﻿@using xChanger.MVC.Models.Foundations.Applicants;
+@model ExternalApplicantViewModel
+<h1>EditApplicant</h1>
+<form method="post" asp-action="EditApplicant">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container p-3">
+        <input asp-for="ExternalApplicantModel.Id" hidden />
+        <div class="row">
+            <h2 class="text-info pl-3">Edit Applicant</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="ExternalApplicantModel.FirstName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ExternalApplicantModel.FirstName" class="form-control" value="@Model.ExternalApplicantModel.FirstName" />
+                        <span asp-validation-for="ExternalApplicantModel.FirstName" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="ExternalApplicantModel.LastName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ExternalApplicantModel.LastName" class="form-control" value="@Model.ExternalApplicantModel.LastName" />
+                        <span asp-validation-for="ExternalApplicantModel.LastName" class="text-danger"></span>
+                    </div>
+
+                </div>
+                
+                <br />
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="ExternalApplicantModel.Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ExternalApplicantModel.Email" class="form-control" value="@Model.ExternalApplicantModel.Email" />
+                        <span asp-validation-for="ExternalApplicantModel.Email" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <br />
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="ExternalApplicantModel.GroupName"></label>
+                    </div>
+                        <div class="col-8">
+                            <select asp-for="ExternalApplicantModel.GroupId" asp-items="@Model.SelectListGroups" class="form-control">
+                                <option disabled selected>--Select Group--</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                 </div>
+                 <br />
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="ExternalApplicantModel.PhoneNumber"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ExternalApplicantModel.PhoneNumber" class="form-control" value="@Model.ExternalApplicantModel.PhoneNumber" />
+                        <span asp-validation-for="ExternalApplicantModel.PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <br />
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Edit" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="ShowData" class="btn btn-success w-100"> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</form>

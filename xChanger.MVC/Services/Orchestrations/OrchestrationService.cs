@@ -46,12 +46,17 @@ public partial class OrchestrationService : IOrchestrationService
 
         foreach (var externalApplicant in validExternalApplicants)
         {
-            Group ensureGroup = await groupProccesingService.EnsureGroupExistsByName(externalApplicant.GroupName);
+            Group ensureGroup = await GetGroup(externalApplicant);
             ExternalApplicantModel applicant = MapToApplicant(externalApplicant, ensureGroup);
             await applicantProccesingService.InsertApplicantAsync(applicant);
 
         }
     });
+
+    private ValueTask<Group> GetGroup(ExternalApplicantModel externalApplicant)
+    {
+        return groupProccesingService.EnsureGroupExistsByName(externalApplicant.GroupName);
+    }
 
     private ExternalApplicantModel MapToApplicant(ExternalApplicantModel externalApplicant, Group ensureGroup)
     {
@@ -66,11 +71,19 @@ public partial class OrchestrationService : IOrchestrationService
             PhoneNumber = externalApplicant.PhoneNumber
         };
     }
+    public async ValueTask<ExternalApplicantModel> GetApplicantById(Guid id) =>
+        await this.applicantProccesingService.GetApplicantByIdAsync(id);
 
     public IQueryable<ExternalApplicantModel> RetrieveAllApplicants() =>
              this.applicantProccesingService.RetrieveAllApplicants();
 
+    public async ValueTask<ExternalApplicantModel> UpdateApplicant(ExternalApplicantModel externalApplicantModel) =>
+         await this.applicantProccesingService.UpdateApplicantModelAsync(externalApplicantModel);
+         
+
     public IQueryable<Group> RetrieveAllGroups()=>
         this.groupProccesingService.RetrieveAllGroups();
-    
+
+    public async Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+        await this.applicantProccesingService.DeleteApplicantModelAsync(externalApplicantModel);
 }

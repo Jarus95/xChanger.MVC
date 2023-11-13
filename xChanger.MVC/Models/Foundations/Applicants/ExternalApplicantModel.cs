@@ -4,6 +4,7 @@
 //=================================
 
 using System;
+using xChanger.MVC.Models.Foundations.Groups;
 
 namespace xChanger.MVC.Models.Foundations.Applicants;
 

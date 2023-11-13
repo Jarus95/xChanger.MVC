@@ -32,13 +32,13 @@
                         <td>@item.PhoneNumber</td>
                         <td>@item.GroupName</td>
                         <td>
-                            <a asp-route-studentId="@item.Id" asp-action="EditStudent" class="btn btn-primary">
+                            <a asp-route-id="@item.Id" asp-action="EditApplicant" class="btn btn-primary">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </td>
 
                         <td>
-                            <a asp-route-id="@item.Id" asp-action="DeleteStudent" class="btn btn-danger" onclick="return DeleteInput()">
+                            <a asp-route-id="@item.Id" asp-action="DeleteApplicant" class="btn btn-danger" onclick="return DeleteInput()">
                                 <i class="fa-solid fa-delete-left"></i>
                             </a>
                         </td>
@@ -52,15 +52,15 @@
 
     <br />
     <a asp-action="Download" class="btn btn-primary">Download</a>
-    @*    <script>
+        <script>
             function DeleteInput(){
 
              Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Student is Deleted',
+          title: 'Applicant is Deleted',
           showConfirmButton: false,
           timer: 1000
         })
             }
-            </script>*@
+            </script>

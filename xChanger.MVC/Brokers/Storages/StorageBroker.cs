@@ -10,6 +10,7 @@ using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using xChanger.MVC.Models;
+using xChanger.MVC.Models.Foundations.Applicants;
 
 namespace xChanger.MVC.Brokers.Storages
 {

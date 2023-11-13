@@ -27,7 +27,7 @@ namespace xChanger.MVC.Brokers.Storages
         public async ValueTask<ExternalApplicantModel> UpdateExternalApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
             await UpdateAsync(externalApplicantModel);
 
-        public async ValueTask<ExternalApplicantModel> DeleteExternalApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
+        public async Task DeleteExternalApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
             await DeleteAsync(externalApplicantModel);
     }
 }

@@ -27,7 +27,7 @@ namespace xChanger.MVC.Services.Foundations.Applicants
         public ValueTask<ExternalApplicantModel> AddApplicantAsync(ExternalApplicantModel externalApplicantModel) =>
         TryCatch(async () =>
         {
-            ValidateApplicantOnAdd(externalApplicantModel);
+            ValidateApplicanAdd(externalApplicantModel);
             return await storageBroker.InsertExternalApplicantModelAsync(externalApplicantModel);
 
         });
@@ -38,17 +38,18 @@ namespace xChanger.MVC.Services.Foundations.Applicants
         public ValueTask<ExternalApplicantModel> UpdateApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
         TryCatch(async () =>
         {
-            ValidateApplicantOnAdd(externalApplicantModel);
+            ValidateApplicantOnModify(externalApplicantModel);
             return await storageBroker.UpdateExternalApplicantModelAsync(externalApplicantModel);
 
         });
-
-        public ValueTask<ExternalApplicantModel> DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel) =>
-        TryCatch(async () =>
+        public async Task DeleteApplicantModelAsync(ExternalApplicantModel externalApplicantModel)
         {
-            ValidateApplicantOnAdd(externalApplicantModel);
-            return await storageBroker.DeleteExternalApplicantModelAsync(externalApplicantModel);
+            ValidateApplicanId(externalApplicantModel);
+            await storageBroker.DeleteExternalApplicantModelAsync(externalApplicantModel);
 
-        });
+        }
+
+        public async ValueTask<ExternalApplicantModel> GetApplicantByIdAsync(Guid id) =>
+            await this.storageBroker.SelectExternalApplicantModelIdAsync(id);
     }
 }
