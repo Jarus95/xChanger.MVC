@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//=================================
+// Copyright (c) Tarteeb LLC.
+// Powering True Leadership
+//=================================
+
 using FluentAssertions;
 using Moq;
 using xChanger.MVC.Models.Foundations.Groups;
@@ -23,7 +22,7 @@ namespace xChanger.MVC.Tests.Services.Foundations.Groups
             var expectedGroupValidationException = new GroupValidationException(nullGroupEexception);
             //when
             ValueTask<Group> AddGroupTask = this.groupService.UpdateGroupAsync(group);
-            GroupValidationException inputGroupValidationException = 
+            GroupValidationException inputGroupValidationException =
                 await Assert.ThrowsAsync<GroupValidationException>(AddGroupTask.AsTask);
             //then
             inputGroupValidationException.Should().BeEquivalentTo(expectedGroupValidationException);
