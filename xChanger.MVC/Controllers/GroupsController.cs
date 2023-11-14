@@ -30,6 +30,9 @@ namespace xChanger.MVC.Controllers
         }
         public IActionResult ShowGroups()
         {
+            if (WC.IsLogin is false)
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+
             IQueryable<Group> groups = orchestrationService.RetrieveAllGroups();
             return View(groups);
         }

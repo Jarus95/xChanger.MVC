@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using xChanger.MVC.Models.Foundations.Applicants;
 using xChanger.MVC.Services.Orchestrations;
@@ -33,6 +34,9 @@ namespace xChanger.MVC.Controllers
 
         public IActionResult ShowApplicants()
         {
+            if(WC.IsLogin is false)
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+
             IQueryable<ExternalApplicantModel> applicants = orchestrationService.RetrieveAllApplicants();
             return View(applicants);
 
