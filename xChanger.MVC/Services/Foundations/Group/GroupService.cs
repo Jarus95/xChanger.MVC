@@ -39,7 +39,7 @@ namespace xChanger.MVC.Services.Foundations.Group
         public ValueTask<ApplicantsGroup> UpdateGroupAsync(ApplicantsGroup group) =>
         TryCatch(async() =>
         {
-            ValidateGroupIsNotNull(group);
+           // ValidateGroupIsNotNull(group);
             return await this.storageBroker.UpdateGroupAsync(group);
         });
 
