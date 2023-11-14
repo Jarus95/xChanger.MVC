@@ -107,7 +107,32 @@ namespace xChanger.MVC.Controllers
 
             return NotFound();
 
+        }
 
+        public IActionResult SearchApplicants(string str)
+        {
+            var allApplicants = orchestrationService.RetrieveAllApplicants();
+
+            if(string.IsNullOrWhiteSpace(str))
+                return View("ShowApplicants", allApplicants);
+
+            IQueryable<ExternalApplicantModel> applicants = 
+                allApplicants.Where(app=>app.FirstName.ToLower(). Contains(str.ToLower()) 
+                || app.LastName. ToLower().Contains(str.ToLower()));
+
+            return View("ShowApplicants", applicants);
+        }
+        public IActionResult FilterApplicants(string orderby)
+        {
+            var allApplicants = orchestrationService.RetrieveAllApplicants();
+
+            switch (orderby)
+            {
+                case "firstname": allApplicants = allApplicants.OrderBy(a => a.FirstName); break;
+                case "lastname":  allApplicants = allApplicants.OrderBy(a => a.LastName); break;
+                default: break;
+            }
+            return View("ShowApplicants", allApplicants);
         }
     }
 }
