@@ -23,6 +23,9 @@ namespace xChanger.MVC.Controllers
         }
         public IActionResult Index()
         {
+            if (WC.IsLogin is false)
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+
             return View();
         }
 

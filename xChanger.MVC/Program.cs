@@ -14,11 +14,17 @@ using xChanger.MVC.Services.Proccesings.Group;
 using xChanger.MVC.Services.Proccesings.SpreadSheet;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using FluentAssertions.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<StorageBroker>();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StorageBroker>();
 builder.Services.AddSingleton<IStorageBroker, StorageBroker>();
