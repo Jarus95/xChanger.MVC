@@ -7,6 +7,7 @@ using System;
 using System.Globalization;
 using System.Threading.Tasks;
 using xChanger.MVC.Models.Foundations.Applicants.Exceptions.Categories;
+using xChanger.MVC.Models.Foundations.Groups;
 using xChanger.MVC.Models.Orchestrations.ExternalApplicants;
 using xChanger.MVC.Models.Orchestrations.Groups;
 using xChanger.MVC.Models.Orchestrations.SpreadSheet;
@@ -21,6 +22,31 @@ namespace xChanger.MVC.Services.Orchestrations
     public partial class OrchestrationService
     {
         public delegate Task ProccesingImportFunction();
+        public delegate ValueTask<Group> ReturningGroupFunctions();
+
+        public async ValueTask<Group> TryCatch(ReturningGroupFunctions returningGroupFunctions)
+        {
+            try
+            {
+                return await returningGroupFunctions();
+            }
+            catch (GroupProccesingValidationException groupProccesingValidationException)
+            {
+                throw CreateAndLogGroupOrchestrationValidationException(groupProccesingValidationException.InnerException as Xeption);
+            }
+            catch (GroupProccesingDependencyException groupProccesingDependencyException)
+            {
+                throw CreateAndLogGroupOrchestrationDependencyException(groupProccesingDependencyException.InnerException as Xeption);
+            }
+            catch (GroupProccesingDependencValidationException groupProccesingDependencValidationException)
+            {
+                throw CreateAndLogGroupOrchestrationDependencyValidationException(groupProccesingDependencValidationException.InnerException as Xeption);
+            }
+            catch (GroupProccesingServiceException groupProccesingServiceException)
+            {
+                throw CreateAndLogGroupOrchestrationServiceException(groupProccesingServiceException.InnerException as Xeption);
+            }
+        }
         public async Task TryCatch(ProccesingImportFunction proccesingImportFunction)
         {
             try
