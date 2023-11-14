@@ -95,8 +95,19 @@ namespace xChanger.MVC.Controllers
             }
 
             return NotFound();
+        }
 
+        public IActionResult SearchGroups(string str)
+        {
+            var Allgroups = orchestrationService.RetrieveAllGroups();
 
+            if (string.IsNullOrWhiteSpace(str))
+                return View("ShowGroups", Allgroups);
+
+            IQueryable<Group> groups =
+                Allgroups.Where(app => app.GroupName.ToLower().Contains(str.ToLower()));
+
+            return View("ShowGroups", groups);
         }
     }
 

@@ -39,6 +39,7 @@ namespace xChanger.MVC.Brokers.Storages
                 row++;
             }
             string fileName = "groups.xlsx";
+            string rootPath = Path.Combine(webHostEnvironment.WebRootPath, "data");
             string filePath = Path.Combine(rootPath, fileName);
             package.SaveAs(new FileInfo(filePath));
             return fileName;

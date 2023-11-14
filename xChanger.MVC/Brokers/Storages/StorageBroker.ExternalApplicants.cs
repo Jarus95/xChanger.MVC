@@ -16,7 +16,6 @@ namespace xChanger.MVC.Brokers.Storages
     public partial class StorageBroker
     {
         public DbSet<ExternalApplicantModel> ExternalApplicantModel { get; set; }
-        string rootPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "wwwroot", "data");
         public string ApplicantGetDownloadedFileName()
         {
             var applicants = RetrieveAllExternalApplicantModels();
@@ -49,6 +48,7 @@ namespace xChanger.MVC.Brokers.Storages
                 row++;
             }
             string fileName = "applicants.xlsx";
+            string rootPath = Path.Combine(webHostEnvironment.WebRootPath, "data");
             string filePath = Path.Combine(rootPath, fileName);
             package.SaveAs(new FileInfo(filePath));
             return fileName;
