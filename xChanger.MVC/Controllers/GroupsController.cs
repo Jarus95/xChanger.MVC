@@ -4,13 +4,18 @@
 //=================================
 
 using System;
+using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using xChanger.MVC.Models.Foundations.Applicants;
+using xChanger.MVC.Models.Foundations.Groups.Exceptions;
+using xChanger.MVC.Models.Orchestrations.Groups;
 using xChanger.MVC.Services.Orchestrations;
+using Xeptions;
 using Group = xChanger.MVC.Models.Foundations.Groups.Group;
 
 namespace xChanger.MVC.Controllers
@@ -48,18 +53,55 @@ namespace xChanger.MVC.Controllers
         [HttpPost]
         public async ValueTask<IActionResult> EditGroup(Group group)
         {
-            await this.orchestrationService.UpdateGroupAsync(group);
-            IQueryable<ExternalApplicantModel> applicants = this.orchestrationService.RetrieveAllApplicants();
-            foreach (var item in applicants)
+            try
             {
-                if (item.GroupId == group.Id)
+                await this.orchestrationService.UpdateGroupAsync(group);
+                IQueryable<ExternalApplicantModel> applicants = this.orchestrationService.RetrieveAllApplicants();
+                foreach (var item in applicants)
                 {
-                    item.GroupName = group.GroupName;
-                    await this.orchestrationService.UpdateApplicant(item);
-                }
+                    if (item.GroupId == group.Id)
+                    {
+                        item.GroupName = group.GroupName;
+                        await this.orchestrationService.UpdateApplicant(item);
+                    }
 
+                }
+                return RedirectToAction(nameof(ShowGroups));
             }
-            return RedirectToAction(nameof(ShowGroups));
+            catch (GroupOrchestartionValidationException groupOrchestartionValidationException)
+                when(groupOrchestartionValidationException.InnerException is InvalidGroupException)
+            {
+                Xeption innerException = (Xeption)groupOrchestartionValidationException.InnerException;
+                string exception = innerException.Message;
+                foreach (DictionaryEntry item in innerException.Data)
+                {
+                    string errorSummary = ((List<string>)item.Value)
+                        .Select((string value) => value)
+                        .Aggregate((string current, string next) => current + ", " + next);
+                    exception += "\n" + item.Key + " - " + errorSummary;
+                }
+                return BadRequest(exception);
+            }
+            catch(GroupOrchestartionValidationException groupOrchestartionValidationException)
+            {
+                return BadRequest(groupOrchestartionValidationException.Message + " " +
+                    groupOrchestartionValidationException.InnerException.Message);
+            }
+            catch(GroupOrchestartionDependencyException groupOrchestartionDependencyException)
+            {
+                return BadRequest(groupOrchestartionDependencyException.Message + " " +
+                    groupOrchestartionDependencyException.InnerException.Message);
+            }
+            catch(GroupOrchestartionDependencyValidationException groupOrchestartionDependencyValidationException)
+            {
+                return BadRequest(groupOrchestartionDependencyValidationException.Message + " " +
+                   groupOrchestartionDependencyValidationException.InnerException.Message);
+            }
+            catch(GroupOrchestrationServiceException groupOrchestrationServiceException)
+            {
+                return BadRequest(groupOrchestrationServiceException.Message + " " +
+                   groupOrchestrationServiceException.InnerException.Message);
+            }
         }
         [HttpGet]
         public async Task<IActionResult> DeleteGroup(Guid id)
